@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  antarctic-simulation-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: antarctic-nav-ai-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount data folder so NetCDF environmental sets can be updated without rebuilding image
+      - ./data:/app/data
+    environment:
+      - ENVIRONMENT=production
+      - LOG_LEVEL=info
+    restart: unless-stopped
