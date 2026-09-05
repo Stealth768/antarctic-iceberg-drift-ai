@@ -62,7 +62,7 @@ L.Icon.Default.mergeOptions({
 
 const ANTARCTIC_CENTER = [-68.0, 70.0];
 const ANTARCTIC_ZOOM = 3;
-
+const CARTO_API_KEY = import.meta.env.VITE_CARTO_API_KEY
 // -----------------------------------------------------------------------------
 // COMPLETE ROSTER OF ANTARCTIC RESEARCH STATIONS (INDIAN + INTERNATIONAL)
 // -----------------------------------------------------------------------------
@@ -1319,8 +1319,8 @@ export default function App() {
               maxZoom={12}
             >
               <TileLayer
-                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-                attribution='&copy; <a href="https://carto.com/">CARTO</a> | SIH26059'
+                url={`https://{s}.basemaps.cartocdn.com/rastertiles/dark_matter/{z}/{x}/{y}.png${CARTO_API_KEY ? `?key=${CARTO_API_KEY}` : ''}`}
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a> | SIH26059'
                 subdomains="abcd"
                 maxZoom={20}
               />
