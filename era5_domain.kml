@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>ERA5 Selected Domain</name>
+    <Placemark>
+      <name>ERA5 Dataset Bounding Box</name>
+      <description>Spatial range: Lat [-78.0, -75.0], Lon [-45.0, -40.0]</description>
+      <Style>
+        <LineStyle>
+          <color>ff0000ff</color>
+          <width>3</width>
+        </LineStyle>
+        <PolyStyle>
+          <color>330000ff</color>
+        </PolyStyle>
+      </Style>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <coordinates>
+              -45.0,-75.0,0
+              -40.0,-75.0,0
+              -40.0,-78.0,0
+              -45.0,-78.0,0
+              -45.0,-75.0,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>

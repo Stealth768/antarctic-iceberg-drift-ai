@@ -1,0 +1,60 @@
+{
+  "architecture": {
+    "physics_module": "simulate_iceberg (frozen)",
+    "ml_component": "RidgeResidualModel",
+    "correction_application": "Post-processing in projected coords"
+  },
+  "residual_bound": {
+    "value_meters": 7874.14599609375,
+    "selection_method": "P95 of train+val residuals",
+    "percentile": 95.0
+  },
+  "sample_counts": {
+    "train": 44,
+    "val": 15,
+    "test": 14
+  },
+  "test_partition": {
+    "start": "2000-01-03 11:00:00",
+    "end": "2000-01-04 00:00:00",
+    "sample_count": 14,
+    "chronological": true,
+    "held_out": true
+  },
+  "metrics": {
+    "constant_velocity": {
+      "final_position_error_km": 1.8048195421226734,
+      "mae_km": 1.6039941811370186,
+      "rmse_km": 1.6069412948085242,
+      "max_error_km": 1.8048195421226734,
+      "mean_heading_error_deg": 4.1704610981449335,
+      "matched_timestamps": 14.0
+    },
+    "physics_only": {
+      "final_position_error_km": 10.297825983279425,
+      "mae_km": 9.475873477838622,
+      "rmse_km": 9.492522610097826,
+      "max_error_km": 10.297825983279425,
+      "mean_heading_error_deg": 69.48186410477912,
+      "matched_timestamps": 14.0
+    },
+    "physics_ridge_hybrid": {
+      "final_position_error_km": 2.3495719743700443,
+      "mae_km": 1.5188507006018475,
+      "rmse_km": 1.617571176802238,
+      "max_error_km": 2.3495719743700443,
+      "mean_heading_error_deg": 68.24685553054798,
+      "matched_timestamps": 14.0
+    }
+  },
+  "improvements": {
+    "physics_vs_constant_velocity_pct": -490.71993735956056,
+    "hybrid_vs_physics_pct": 82.9595225290112,
+    "hybrid_improves_held_out_test": true
+  },
+  "evaluation": {
+    "type": "chronological_historical_hindcast",
+    "prospective_forecast": false,
+    "test_set_used_for_tuning": false
+  }
+}

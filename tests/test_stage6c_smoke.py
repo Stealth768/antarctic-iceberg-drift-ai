@@ -91,7 +91,7 @@ def test_smoke_era5_loader_integration(synthetic_smoke_era5):
     
     assert set(result.keys()) == {"wind_u", "wind_v", "temperature", "pressure"}
     assert all(np.isfinite(v) for v in result.values())
-    print("✓ ERA5Loader: OK")
+    print("[ok] ERA5Loader")
 
 
 def test_smoke_glorys_loader_boundary_interpolation(synthetic_smoke_glorys):
@@ -108,7 +108,7 @@ def test_smoke_glorys_loader_boundary_interpolation(synthetic_smoke_glorys):
     
     assert set(result.keys()) == {"ocean_u", "ocean_v", "sst"}
     assert all(np.isfinite(v) for v in result.values())
-    print("✓ CopernicusLoader boundary interpolation: OK")
+    print("[ok] CopernicusLoader boundary interpolation")
 
 
 def test_smoke_historical_provider_integration(synthetic_smoke_era5, synthetic_smoke_glorys):
@@ -133,7 +133,7 @@ def test_smoke_historical_provider_integration(synthetic_smoke_era5, synthetic_s
     }
     assert set(env.keys()) == expected_keys
     assert all(np.isfinite(v) for v in env.values())
-    print("✓ HistoricalEnvironmentProvider: OK")
+    print("[ok] HistoricalEnvironmentProvider")
 
 
 def test_smoke_physics_evaluator_integration(synthetic_smoke_era5, synthetic_smoke_glorys):
@@ -183,7 +183,7 @@ def test_smoke_physics_evaluator_integration(synthetic_smoke_era5, synthetic_smo
     assert np.isfinite(result.predicted_longitude)
     assert np.isfinite(result.geodesic_error_km)
     assert result.geodesic_error_km >= 0.0
-    print("✓ IcebergPhysicsEvaluator (3-day simulation): OK")
+    print("[ok] IcebergPhysicsEvaluator (3-day simulation)")
 
 
 def test_smoke_baseline_evaluator_integration():
@@ -219,7 +219,7 @@ def test_smoke_baseline_evaluator_integration():
     assert result.iceberg_id == "SMOKE_TEST"
     assert result.horizon_days == 3
     assert np.isfinite(result.geodesic_error_km)
-    print("✓ ConstantVelocityBaselineEvaluator: OK")
+    print("[ok] ConstantVelocityBaselineEvaluator")
 
 
 def test_smoke_multi_file_environmental_loading(synthetic_smoke_era5, synthetic_smoke_glorys, tmp_path):
@@ -239,7 +239,7 @@ def test_smoke_multi_file_environmental_loading(synthetic_smoke_era5, synthetic_
     
     assert "u10" in combined_era5.data_vars
     assert combined_era5.sizes["time"] >= 3
-    print("✓ Multi-file environmental loading: OK")
+    print("[ok] Multi-file environmental loading")
 
 
 if __name__ == "__main__":

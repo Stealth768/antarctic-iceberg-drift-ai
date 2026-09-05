@@ -147,6 +147,13 @@ class NSIDCLoader:
 
         self.ds[self.var_name] = da
 
+    @staticmethod
+    def _clean_value(val: float) -> float:
+        """Clean raw flag values, returning np.nan for flags or missing data."""
+        if pd.isna(val) or val in FLAG_VALUES or val > 1.0 or val < 0.0:
+            return np.nan
+        return float(val)
+
     def get_sic(
         self,
         timestamp: Union[str, pd.Timestamp],
