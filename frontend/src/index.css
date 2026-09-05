@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global resets ─────────────────────────────────────────────────────── */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #020c18;
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+/* ── Leaflet dark tile override ─────────────────────────────────────────── */
+.leaflet-container {
+  background: #020c18 !important;
+}
+
+/* ── Scrollbar styling ──────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 2px; }
+
+/* ── Pulse animation for status dots ───────────────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+/* ── Leaflet tooltip dark theme ─────────────────────────────────────────── */
+.leaflet-tooltip {
+  background: rgba(2, 12, 30, 0.92) !important;
+  border: 1px solid #1e3a5f !important;
+  color: #93c5fd !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 11px !important;
+  border-radius: 4px !important;
+  padding: 4px 8px !important;
+}
+.leaflet-tooltip::before { border-top-color: #1e3a5f !important; }
+
+/* ── Leaflet popup dark theme ───────────────────────────────────────────── */
+.leaflet-popup-content-wrapper {
+  background: rgba(2, 12, 30, 0.95) !important;
+  border: 1px solid #1e3a5f !important;
+  color: #e2e8f0 !important;
+  border-radius: 6px !important;
+}
+.leaflet-popup-tip { background: rgba(2, 12, 30, 0.95) !important; }
+.leaflet-popup-close-button { color: #64748b !important; }
+
+/* ── Card base ──────────────────────────────────────────────────────────── */
+.panel-card {
+  background: rgba(8, 25, 52, 0.85);
+  border: 1px solid rgba(30, 58, 95, 0.6);
+  border-radius: 6px;
+  backdrop-filter: blur(8px);
+}
+
+/* ── Route line layer ─────────────────────────────────────────────────── */
+.route-line-a { stroke: #ef4444; stroke-width: 3px; stroke-dasharray: 8 4; }
+.route-line-b { stroke: #22c55e; stroke-width: 4px; }
+.route-line-c { stroke: #f59e0b; stroke-width: 3px; stroke-dasharray: 6 3; }
